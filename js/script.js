@@ -99,3 +99,15 @@ function mostrarFavorito(url) {
     wrapper.appendChild(botonFavorito);
     contenedorFavoritos.appendChild(wrapper);
 }
+
+
+const themeSwitch = document.getElementById('theme-switch');
+const body = document.getElementById('page-body');
+
+themeSwitch.addEventListener('change', () => {
+  if (themeSwitch.checked) {
+    body.classList.add('dark-mode');
+  } else {
+    body.classList.remove('dark-mode');
+  }
+});
