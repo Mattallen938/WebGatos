@@ -1,4 +1,4 @@
-const contenedorGatito = document.getElementById('contenedor-gatito'); 
+const contenedorGatito = document.getElementById('contenedor-perrito');
 const contenedorFavoritos = document.getElementById('favoritos');
 
 const botonMostrar = document.getElementById('btn-gatito');
@@ -7,9 +7,15 @@ const botonBorrarFavoritos = document.getElementById('btn-borrar-favoritos');
 
 botonMostrar.textContent = 'Mostrar un gatito';
 
+botonMostrar.addEventListener('click', () => {
+    if (botonMostrar.textContent === 'Mostrar un gatito') {
+        botonMostrar.textContent = 'Mostrar otro gatito';
+    }
+});
+
 let favoritos = [];
 
-// Cargar favoritos al iniciar
+// 🧠 Cargar favoritos al iniciar
 window.addEventListener('DOMContentLoaded', () => {
     const almacenados = localStorage.getItem('gatitosFavoritos');
     if (almacenados) {
@@ -18,25 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Función para mostrar un gatito favorito
-function mostrarFavorito(url) {
-    const wrapper = document.createElement('div');
-    wrapper.classList.add('gatito-card');
-
-    const img = document.createElement('img');
-    img.src = url;
-    img.alt = "Imagen de Gatito Favorito";
-
-    wrapper.appendChild(img);
-    contenedorFavoritos.appendChild(wrapper);
-}
-
-// Mostrar gatito nuevo
 botonMostrar.addEventListener('click', () => {
-    if (botonMostrar.textContent === 'Mostrar un gatito') {
-        botonMostrar.textContent = 'Mostrar otro gatito';
-    }
-
     const cargando = document.createElement('p');
     cargando.textContent = 'Cargando gatito...';
     cargando.classList.add('spinner');
@@ -59,7 +47,6 @@ botonMostrar.addEventListener('click', () => {
             const botonFavorito = document.createElement('button');
             botonFavorito.textContent = '💖';
             botonFavorito.classList.add('btn-favorito');
-
             botonFavorito.addEventListener('click', () => {
                 if (!favoritos.includes(url)) {
                     favoritos.push(url);
@@ -78,13 +65,6 @@ botonMostrar.addEventListener('click', () => {
         });
 });
 
-// Limpiar galería de gatitos mostrados
-botonLimpiar.addEventListener('click', () => {
-    contenedorGatito.innerHTML = '';
-    botonMostrar.textContent = 'Mostrar un gatito';
-});
-
-// Borrar todos los favoritos
 botonBorrarFavoritos.addEventListener('click', () => {
     const confirmacion = confirm('¿Estás seguro de que quieres borrar todos los favoritos? 🐾');
     if (confirmacion) {
@@ -93,3 +73,30 @@ botonBorrarFavoritos.addEventListener('click', () => {
         contenedorFavoritos.innerHTML = '';
     }
 });
+
+botonLimpiar.addEventListener('click', () => {
+    contenedorGatito.innerHTML = '';
+});
+
+function mostrarFavorito(url) {
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('gatito-card');
+
+    const img = document.createElement('img');
+    img.src = url;
+    img.alt = "Imagen de Gatito Favorito";
+
+    const botonFavorito = document.createElement('button');
+    botonFavorito.textContent = '💖';
+    botonFavorito.classList.add('btn-favorito');
+    botonFavorito.addEventListener('click', () => {
+        // Quitar de favoritos
+        favoritos = favoritos.filter(favUrl => favUrl !== url);
+        localStorage.setItem('gatitosFavoritos', JSON.stringify(favoritos));
+        contenedorFavoritos.removeChild(wrapper);
+    });
+
+    wrapper.appendChild(img);
+    wrapper.appendChild(botonFavorito);
+    contenedorFavoritos.appendChild(wrapper);
+}
