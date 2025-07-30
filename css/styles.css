@@ -1,4 +1,4 @@
-/* Reset y estilos base */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -8,18 +8,11 @@
 body {
     font-family: 'Quicksand', sans-serif;
     line-height: 1.6;
-}
-
-.theme-switch {
-    display: none;
-}
-
-.theme-container {
     background: linear-gradient(135deg, #ffeaa7, #fab1a0);
     color: #2d3436;
-    transition: all 0.3s ease;
     min-height: 100vh;
-    padding: 2rem;
+    padding: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .theme-switch:checked ~ .theme-container {
@@ -27,38 +20,44 @@ body {
     color: #ddd;
 }
 
-/* Toggle Switch */
+/* Toggle switch styling */
+.theme-switch {
+    display: none;
+}
+
 .toggle-label {
     position: fixed;
     top: 20px;
     right: 20px;
-    display: inline-block;
     width: 80px;
     height: 40px;
     cursor: pointer;
     z-index: 1000;
+    user-select: none;
 }
 
 .toggle-slider {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
     background-color: #fab1a0;
     border-radius: 40px;
-    transition: 0.3s;
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
 }
 
 .toggle-slider:before {
-    position: absolute;
     content: "";
+    position: absolute;
     height: 32px;
     width: 32px;
     left: 4px;
     bottom: 4px;
     background-color: white;
     border-radius: 50%;
-    transition: 0.3s;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
 }
 
 .theme-switch:checked + .toggle-label .toggle-slider {
@@ -74,7 +73,6 @@ body {
     top: 50%;
     transform: translateY(-50%);
     font-size: 1.2rem;
-    transition: 0.3s;
     pointer-events: none;
 }
 
@@ -88,14 +86,30 @@ body {
     color: #f1c40f;
 }
 
+/* Container general */
+.theme-container {
+    max-width: 960px;
+    margin: 4rem auto 2rem auto;
+    padding: 0 1rem 2rem 1rem;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode container */
+.theme-switch:checked ~ .theme-container {
+    background: rgba(45, 52, 54, 0.85);
+}
+
 /* Tipografía */
 h1 {
     text-align: center;
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
     color: #e17055;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 .theme-switch:checked ~ .theme-container h1 {
@@ -104,14 +118,14 @@ h1 {
 
 p {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 2rem;
     opacity: 0.8;
 }
 
 h2 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin: 2rem 0 1rem 0;
     color: #e17055;
     font-weight: 600;
@@ -126,15 +140,15 @@ h2 {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 2rem;
     flex-wrap: wrap;
+    margin-bottom: 1.5rem;
 }
 
 button {
     background: linear-gradient(45deg, #e17055, #d63031);
     color: white;
     border: none;
-    padding: 15px 25px;
+    padding: 12px 24px;
     border-radius: 50px;
     cursor: pointer;
     font-size: 1rem;
@@ -164,7 +178,7 @@ button:active {
 
 #btn-borrar-favoritos {
     display: block;
-    margin: 0 auto 1rem auto;
+    margin: 1rem auto 1.5rem auto;
     background: linear-gradient(45deg, #fd79a8, #e84393);
 }
 
@@ -172,52 +186,112 @@ button:active {
     background: linear-gradient(45deg, #a29bfe, #6c5ce7);
 }
 
-/* Grid para contenedores de imágenes */
-#contenedor-perrito, #favoritos {
+/* Contenedores imágenes */
+#contenedor-gatito, #favoritos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem auto;
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin: 0 auto;
+    max-width: 100%;
 }
 
 /* Tarjetas de gatitos */
 .gatito-card {
     background: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    padding: 1rem;
+    border-radius: 15px;
+    padding: 0.75rem;
     box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.3);
     position: relative;
     overflow: hidden;
-    animation: fadeInUp 0.6s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .theme-switch:checked ~ .theme-container .gatito-card {
-    background: rgba(45,52,54,0.9);
+    background: rgba(45, 52, 54, 0.9);
     border: 1px solid rgba(255,255,255,0.1);
 }
 
 .gatito-card:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-5px) scale(1.03);
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
+/* Imágenes */
 .gatito-card img {
     width: 100%;
-    height: 250px;
+    height: 220px;
     object-fit: cover;
-    border-radius: 15px;
-    transition: all 0.3s ease;
+    border-radius: 12px;
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease;
 }
 
 .gatito-card img:hover {
     transform: scale(1.05);
 }
 
-/* Botón favorito (solo corazón) */
+/* Botón favorito solo corazón */
 .btn-favorito {
     position: absolute;
-    top: 15
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #e84393;
+    text-shadow: 0 0 5px rgba(255,255,255,0.6);
+    transition: transform 0.2s ease;
+}
+
+.btn-favorito:hover {
+    transform: scale(1.2);
+    color: #fab1a0;
+}
+
+.theme-switch:checked ~ .theme-container .btn-favorito {
+    color: #fab1a0;
+}
+
+/* Spinner estilo simple */
+.spinner {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #e17055;
+    padding: 1rem 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+    .theme-container {
+        margin: 3rem 1rem 2rem 1rem;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    #contenedor-gatito, #favoritos {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .gatito-card img {
+        height: 180px;
+    }
+}
