@@ -1,4 +1,4 @@
-
+/* Reset y estilos base */
 * {
     margin: 0;
     padding: 0;
@@ -10,11 +10,9 @@ body {
     line-height: 1.6;
 }
 
-
 .theme-switch {
     display: none;
 }
-
 
 .theme-container {
     background: linear-gradient(135deg, #ffeaa7, #fab1a0);
@@ -24,12 +22,12 @@ body {
     padding: 2rem;
 }
 
-
 .theme-switch:checked ~ .theme-container {
     background: linear-gradient(135deg, #2d3436, #636e72);
     color: #ddd;
 }
 
+/* Toggle Switch */
 .toggle-label {
     position: fixed;
     top: 20px;
@@ -43,14 +41,11 @@ body {
 
 .toggle-slider {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background-color: #fab1a0;
     border-radius: 40px;
     transition: 0.3s;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .toggle-slider:before {
@@ -63,9 +58,8 @@ body {
     background-color: white;
     border-radius: 50%;
     transition: 0.3s;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
-
 
 .theme-switch:checked + .toggle-label .toggle-slider {
     background-color: #636e72;
@@ -74,7 +68,6 @@ body {
 .theme-switch:checked + .toggle-label .toggle-slider:before {
     transform: translateX(40px);
 }
-
 
 .toggle-icon {
     position: absolute;
@@ -95,14 +88,13 @@ body {
     color: #f1c40f;
 }
 
-
-
+/* Tipografía */
 h1 {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 1rem;
     color: #e17055;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     font-weight: 600;
 }
 
@@ -129,7 +121,7 @@ h2 {
     color: #fab1a0;
 }
 
-
+/* Botones */
 .botones {
     display: flex;
     justify-content: center;
@@ -148,29 +140,27 @@ button {
     font-size: 1rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(225, 112, 85, 0.3);
+    box-shadow: 0 4px 15px rgba(225,112,85,0.3);
     font-family: 'Quicksand', sans-serif;
 }
 
 button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(225, 112, 85, 0.4);
+    box-shadow: 0 8px 25px rgba(225,112,85,0.4);
 }
 
 button:active {
     transform: translateY(-1px);
 }
 
-
 .theme-switch:checked ~ .theme-container button {
     background: linear-gradient(45deg, #fab1a0, #e84393);
-    box-shadow: 0 4px 15px rgba(250, 177, 160, 0.3);
+    box-shadow: 0 4px 15px rgba(250,177,160,0.3);
 }
 
 .theme-switch:checked ~ .theme-container button:hover {
-    box-shadow: 0 8px 25px rgba(250, 177, 160, 0.4);
+    box-shadow: 0 8px 25px rgba(250,177,160,0.4);
 }
-
 
 #btn-borrar-favoritos {
     display: block;
@@ -182,223 +172,52 @@ button:active {
     background: linear-gradient(45deg, #a29bfe, #6c5ce7);
 }
 
-#contenedor-gatito, #favoritos {
+/* Grid para contenedores de imágenes */
+#contenedor-perrito, #favoritos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
-    margin: 2rem 0;
+    margin: 2rem auto;
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-
+/* Tarjetas de gatitos */
 .gatito-card {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     padding: 1rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255,255,255,0.2);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .theme-switch:checked ~ .theme-container .gatito-card {
-    background: rgba(45, 52, 54, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(45,52,54,0.9);
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 .gatito-card:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
 .gatito-card img {
     width: 100%;
-    height: 250px; /* altura uniforme */
-    object-fit: cover; /* recorta y centra */
+    height: 250px;
+    object-fit: cover;
     border-radius: 15px;
-    aspect-ratio: 4 / 3; /* opcional: mejora el recorte */
-    display: block;
+    transition: all 0.3s ease;
 }
-
 
 .gatito-card img:hover {
     transform: scale(1.05);
 }
 
-
+/* Botón favorito (solo corazón) */
 .btn-favorito {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.btn-favorito:hover {
-    background: rgba(255, 255, 255, 1);
-    transform: scale(1.1);
-}
-
-.theme-switch:checked ~ .theme-container .btn-favorito {
-    background: rgba(45, 52, 54, 0.9);
-    color: white;
-}
-
-
-
-@media (max-width: 768px) {
-    .theme-container {
-        padding: 1rem;
-    }
-    
-    h1 {
-        font-size: 2.5rem;
-    }
-    
-    .toggle-label {
-        top: 15px;
-        right: 15px;
-        width: 60px;
-        height: 30px;
-    }
-    
-    .toggle-slider:before {
-        height: 24px;
-        width: 24px;
-        left: 3px;
-        bottom: 3px;
-    }
-    
-    .theme-switch:checked + .toggle-label .toggle-slider:before {
-        transform: translateX(30px);
-    }
-    
-    .toggle-icon {
-        font-size: 1rem;
-    }
-    
-    .sun-icon {
-        left: 6px;
-    }
-    
-    .moon-icon {
-        right: 6px;
-    }
-    
-    #contenedor-perrito, #favoritos {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1rem;
-    }
-    
-    .botones {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    button {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 768px) {
-    #contenedor-gatito, #favoritos {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 1rem;
-        max-width: 100%;
-        padding: 0 0.5rem;
-    }
-
-    .gatito-card img {
-        height: 180px;
-    }
-
-    .btn-favorito {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
-        top: 10px;
-        right: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    #contenedor-gatito, #favoritos {
-        grid-template-columns: 1fr;
-        padding: 0 0.5rem;
-        gap: 1rem;
-    }
-
-    .gatito-card img {
-        height: 150px;
-    }
-
-    .btn-favorito {
-        width: 30px;
-        height: 30px;
-        font-size: 0.9rem;
-        top: 8px;
-        right: 8px;
-    }
-}
-
-.toggle-label:focus-within .toggle-slider {
-    outline: 2px solid #e17055;
-    outline-offset: 2px;
-}
-
-.gatito-card {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.loading {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-    0% {
-        background-position: 200% 0;
-    }
-    100% {
-        background-position: -200% 0;
-    }
-}
-
-.theme-switch:checked ~ .theme-container .loading {
-    background: linear-gradient(90deg, #2d3436 25%, #636e72 50%, #2d3436 75%);
-    background-size: 200% 100%;
-}
-
-.spinner {
-    text-align: center;
-    font-style: italic;
-    color: #888;
-    margin: 1rem 0;
-}
+    top: 15
