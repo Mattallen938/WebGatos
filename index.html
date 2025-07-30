@@ -1,43 +1,37 @@
-<!DOCTYPE html> 
-<html lang="es"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Galería Gatuna</title> 
-    <link href="css/styles.css" rel="stylesheet"> 
-</head> 
-<body id=page-body> 
-    <!-- Toggle switch --> 
-    <input type="checkbox" id="theme-switch" class="theme-switch"> 
-     
-    <!-- Toggle --> 
-    <label for="theme-switch" class="toggle-label"> 
-        <span class="toggle-slider"> 
-            <span class="toggle-icon sun-icon">☀️</span> 
-            <span class="toggle-icon moon-icon">🌙</span> 
-        </span> 
-    </label> 
- 
-    <!-- Contenedor Main --> 
-    <div class="theme-container"> 
-         
-        <h1>Galería gatuna</h1> 
-        <p>A continuación una colección sin fin de mininos adorables</p> 
- 
-        <div class="botones"> 
-            <button id="btn-gatito">¡Mostrar otro gatito!</button> 
-            <button id="btn-limpiar">Limpiar galería</button> 
-        </div> 
- 
-        <div id="contenedor-gatito"></div> 
- 
-        <h2>🐾 Gatitos favoritos</h2> 
-        <button id="btn-borrar-favoritos">Borrar favoritos</button> 
-        <div id="favoritos"></div> 
- 
-    </div> 
- 
-    <script src="js/script.js"></script>
- 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galería Gatitos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body id="page-body">
+
+  <main class="theme-container">
+    <h1>Galería Gatitos</h1>
+
+    <!-- Toggle modo nocturno -->
+    <input type="checkbox" id="theme-switch" class="theme-switch" />
+    <label for="theme-switch" class="toggle-label">
+      <span class="toggle-slider"></span>
+    </label>
+
+    <p>Disfruta de imágenes adorables de gatitos y guarda tus favoritos.</p>
+
+    <div class="botones">
+      <button id="btn-gatito">Mostrar otro gatito</button>
+      <button id="btn-limpiar">Limpiar galería</button>
+    </div>
+
+    <section id="contenedor-gatito"></section>
+
+    <h2>Favoritos</h2>
+    <button id="btn-borrar-favoritos">Borrar todos los favoritos</button>
+    <section id="favoritos"></section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
