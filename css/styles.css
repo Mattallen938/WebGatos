@@ -182,7 +182,7 @@ button:active {
     background: linear-gradient(45deg, #a29bfe, #6c5ce7);
 }
 
-#contenedor-perrito, #favoritos {
+#contenedor-gatito, #favoritos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
