@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Galería Gatitos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="estilos.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galería Gatitos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body id="page-body">
 
-  <main class="theme-container">
-    <h1>Galería Gatitos</h1>
+  <main class="theme-container">
+    <h1>Galería Gatitos</h1>
 
-    <!-- Toggle modo nocturno -->
-    <input type="checkbox" id="theme-switch" class="theme-switch" />
-    <label for="theme-switch" class="toggle-label">
-      <span class="toggle-slider"></span>
-    </label>
+    <!-- Toggle modo nocturno -->
+    <input type="checkbox" id="theme-switch" class="theme-switch" />
+    <label for="theme-switch" class="toggle-label">
+      <span class="toggle-slider"></span>
+    </label>
 
-    <p>Disfruta de imágenes adorables de gatitos y guarda tus favoritos.</p>
+    <p>Disfruta de imágenes adorables de gatitos y guarda tus favoritos.</p>
 
-    <div class="botones">
-      <button id="btn-gatito">Mostrar otro gatito</button>
-      <button id="btn-limpiar">Limpiar galería</button>
-    </div>
+    <div class="botones">
+      <button id="btn-gatito">Mostrar otro gatito</button>
+      <button id="btn-limpiar">Limpiar galería</button>
+    </div>
 
-    <section id="contenedor-gatito"></section>
+    <section id="contenedor-gatito"></section>
 
-    <h2>Favoritos</h2>
-    <button id="btn-borrar-favoritos">Borrar todos los favoritos</button>
-    <section id="favoritos"></section>
-  </main>
+    <h2>Favoritos</h2>
+    <button id="btn-borrar-favoritos">Borrar todos los favoritos</button>
+    <section id="favoritos"></section>
+  </main>
 
-  <script src="script.js"></script>
+  <!-- Corrección aquí: -->
+  <script src="js/script.js"></script>
 </body>
 </html>
