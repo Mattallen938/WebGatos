@@ -57,7 +57,7 @@ botonMostrar.addEventListener('click', () => {
             img.alt = "Imagen de Gatito";
 
             const botonFavorito = document.createElement('button');
-            botonFavorito.textContent = '💖 Guardar';
+            botonFavorito.textContent = '💖';
             botonFavorito.classList.add('btn-favorito');
 
             botonFavorito.addEventListener('click', () => {
