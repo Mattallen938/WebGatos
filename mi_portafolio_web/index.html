@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio Web</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="header1">Matías Techera</h1>
+        <p class="info-principal">
+            ¡Hola! Soy <strong>Matías Techera</strong>. Tengo 21 años y estoy buscando aprender desarrollo web mediante el curso de Jóvenes a Programar.
+            Soy un gran aficionado a la tecnología desde niño, y espero ser capaz de lograr cosas grandes en este ámbito.
+        </p>
+    </header>
+
+    <main>
+        <section class="encabezado" aria-labelledby="competencias-title">
+            <h2 id="competencias-title">Competencias</h2>
+            <ul class="lista">
+                <li>
+                    <div class="icon-box">
+                        <img class="icon" src="/images/proactividad.png" alt="Proactividad">
+                    </div>
+                    <span>Proactividad</span>
+                </li>
+                <li>
+                    <div class="icon-box">
+                        <img class="icon" src="/images/aprendizaje.png" alt="Aprendizaje rápido y constante">
+                    </div>
+                    <span>Aprendizaje rápido y constante</span>
+                </li>
+                <li>
+                    <div class="icon-box">
+                        <img class="icon" src="/images/trabajo_equipo.png" alt="Trabajo en equipo">
+                    </div>
+                    <span>Trabajo en equipo</span>
+                </li>
+                <li>
+                    <div class="icon-box">
+                        <img class="icon" src="/images/comunicacion.png" alt="Comunicación asertiva">
+                    </div>
+                    <span>Comunicación asertiva</span>
+                </li>
+                <li>
+                    <div class="icon-box">
+                        <img class="icon" src="/images/autonomia.png" alt="Autonomía">
+                    </div>
+                    <span>Autonomía</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="Tecnologías" aria-labelledby="tecnologias-title">
+            <h2 id="tecnologias-title">Tecnologías</h2>
+            <p class="info">Cuento con conocimientos básicos en:</p>
+            <ul class="lista">
+                <li>
+                    <div class="icon-box">
+                        <img class="icon" src="/images/html.png" alt="HTML">
+                    </div>
+                    <span>HTML</span>
+                </li>
+                <li>
+                    <div class="icon-box">
+                        <img class="icon" src="/images/css.png" alt="CSS">
+                    </div>
+                    <span>CSS</span>
+                </li>
+                <li>
+                    <div class="icon-box">
+                        <img class="icon" src="/images/js.png" alt="JavaScript">
+                    </div>
+                    <span>JavaScript</span>
+                </li>
+                <li>
+                    <div class="icon-box">
+                        <img class="icon" src="/images/python.png" alt="Python">
+                    </div>
+                    <span>Python</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="contacto" aria-labelledby="contacto-title">
+            <h2 id="contacto-title">Contacto</h2>
+            <form class="form-contacto">
+                <input type="text" name="nombre" placeholder="Tu nombre" required>
+                <input type="email" name="email" placeholder="Tu correo" required>
+                <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
